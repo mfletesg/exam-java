@@ -1,4 +1,4 @@
-package com.exam.demo.service;
+package com.exam.demo.problema1.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.demo.model.Empleado;
-import com.exam.demo.repository.EmpleadoRepository;
+import com.exam.demo.problema1.model.Empleado;
+import com.exam.demo.problema1.repository.EmpleadoRepository;
 
 @Service // Definimos que la clase va a ser un servicio
 

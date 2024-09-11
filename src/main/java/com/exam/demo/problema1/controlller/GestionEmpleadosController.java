@@ -1,4 +1,4 @@
-package com.exam.demo.controller;
+package com.exam.demo.problema1.controlller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,8 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.exam.demo.model.Empleado;
-import com.exam.demo.service.EmpleadoService;
+import com.exam.demo.problema1.model.Empleado;
+import com.exam.demo.problema1.service.EmpleadoService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

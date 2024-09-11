@@ -1,4 +1,4 @@
-package com.exam.demo.controller;
+package com.exam.demo.problema2.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exam.demo.model.Circulo;
-import com.exam.demo.model.Rectangulo;
-import com.exam.demo.model.Triangulo;
+import com.exam.demo.problema2.model.Circulo;
+import com.exam.demo.problema2.model.Rectangulo;
+import com.exam.demo.problema2.model.Triangulo;
 
 @RestController
 public class FiguraController {

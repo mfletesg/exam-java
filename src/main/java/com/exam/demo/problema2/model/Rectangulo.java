@@ -1,6 +1,6 @@
-package com.exam.demo.model;
+package com.exam.demo.problema2.model;
 
-import com.exam.demo.clases.FiguraGeometrica;
+import com.exam.demo.problema2.clases.FiguraGeometrica;
 
 public class Rectangulo extends FiguraGeometrica {
     private double largo;

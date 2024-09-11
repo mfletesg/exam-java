@@ -1,4 +1,4 @@
-package com.exam.demo.repository;
+package com.exam.demo.problema1.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.exam.demo.model.Empleado;
+import com.exam.demo.problema1.model.Empleado;
 
 public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
 

@@ -1,4 +1,4 @@
-package com.exam.demo.clases;
+package com.exam.demo.problema2.clases;
 
 public abstract class FiguraGeometrica {
     public abstract double calcularArea();
