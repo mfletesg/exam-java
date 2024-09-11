@@ -54,8 +54,8 @@ public abstract class CuentaBancaria {
         this.tipoCuenta = tipoCuenta;
     }
 
-    public abstract ResponseEntity<Map<String, Object>> depositar(CuentaBancaria cuentaBancaria);
+    public abstract ResponseEntity<Map<String, Object>> depositar(Map<String, Object> cuentaBancaria);
 
-    public abstract ResponseEntity<Map<String, Object>> retirar(double monto);
+    public abstract ResponseEntity<Map<String, Object>> retirar(Map<String, Object> datos);
 
 }

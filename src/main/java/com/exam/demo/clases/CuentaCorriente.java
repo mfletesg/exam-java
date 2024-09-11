@@ -5,13 +5,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.exam.demo.model.CuentaBancaria;
 
 import jakarta.transaction.Transactional;
 
 @Service
-public class CuentaAhorro extends CuentaBancaria {
+public class CuentaCorriente extends CuentaBancaria {
 
     @Autowired
     private FunctionsCuentaBancaria functionsCuentaBancaria;
@@ -25,5 +24,4 @@ public class CuentaAhorro extends CuentaBancaria {
     public ResponseEntity<Map<String, Object>> retirar(Map<String, Object> datos) {
         return functionsCuentaBancaria.ValidateRetiro(datos);
     }
-
 }
