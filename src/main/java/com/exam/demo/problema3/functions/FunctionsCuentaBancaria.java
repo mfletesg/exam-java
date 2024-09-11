@@ -1,4 +1,4 @@
-package com.exam.demo.clases;
+package com.exam.demo.problema3.functions;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import com.exam.demo.service.CuentaBancariaService;
+import com.exam.demo.problema3.service.CuentaBancariaService;
 
 @Component
 public class FunctionsCuentaBancaria {

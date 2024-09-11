@@ -1,4 +1,4 @@
-package com.exam.demo.model;
+package com.exam.demo.problema3.model;
 
 import java.util.Map;
 

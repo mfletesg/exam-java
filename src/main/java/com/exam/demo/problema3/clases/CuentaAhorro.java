@@ -1,4 +1,4 @@
-package com.exam.demo.clases;
+package com.exam.demo.problema3.clases;
 
 import java.util.Map;
 
@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.exam.demo.model.CuentaBancaria;
+import com.exam.demo.problema3.functions.FunctionsCuentaBancaria;
+import com.exam.demo.problema3.model.CuentaBancaria;
 
 import jakarta.transaction.Transactional;
 

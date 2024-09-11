@@ -1,11 +1,11 @@
-package com.exam.demo.service;
+package com.exam.demo.problema3.service;
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.exam.demo.model.CuentaBancaria;
+import com.exam.demo.problema3.model.CuentaBancaria;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

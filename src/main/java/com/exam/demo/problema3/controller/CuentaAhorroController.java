@@ -1,4 +1,4 @@
-package com.exam.demo.controller;
+package com.exam.demo.problema3.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exam.demo.clases.CuentaAhorro;
-import com.exam.demo.clases.CuentaCorriente;
-import com.exam.demo.model.CuentaBancaria;
-import com.exam.demo.service.CuentaBancariaService;
+import com.exam.demo.problema3.clases.CuentaAhorro;
+import com.exam.demo.problema3.clases.CuentaCorriente;
+import com.exam.demo.problema3.model.CuentaBancaria;
+import com.exam.demo.problema3.service.CuentaBancariaService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
