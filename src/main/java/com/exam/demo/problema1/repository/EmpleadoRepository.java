@@ -22,5 +22,5 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
     @Query("SELECT e FROM Empleado e WHERE e.salary = (SELECT MAX(e2.salary) FROM Empleado e2)")
     List<Empleado> findEmployesWithMaxSalary();
 
-    Optional<Empleado> findByIdentificationNumber(Integer identificationNumber);
+    Optional<Empleado> findByIdentificationNumber(String identificationNumber);
 }

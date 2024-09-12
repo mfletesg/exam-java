@@ -1,5 +1,7 @@
 package com.exam.demo.problema1.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +15,10 @@ public class Empleado {
     private Long id;
 
     private String name;
-    private int identificationNumber;
+
+    @JsonProperty("identificationNumber")
+    private String identificationNumber;
+
     private float salary;
 
     public Long getId() {
@@ -32,11 +37,11 @@ public class Empleado {
         this.name = name;
     }
 
-    public int getIdentificationNumber() {
+    public String getIdentificationNumber() {
         return identificationNumber;
     }
 
-    public void setIdentificationNumber(int identificationNumber) {
+    public void setIdentificationNumber(String identificationNumber) {
         this.identificationNumber = identificationNumber;
     }
 

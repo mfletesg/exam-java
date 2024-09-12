@@ -40,7 +40,7 @@ public class EmpleadoService {
         empleadoRepository.deleteById(id);
     }
 
-    public Optional<Empleado> getEmpleyeByIdentificationNumber(Integer identificartionNumber) {
+    public Optional<Empleado> getEmpleyeByIdentificationNumber(String identificartionNumber) {
         return empleadoRepository.findByIdentificationNumber(identificartionNumber);
     }
 

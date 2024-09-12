@@ -12,30 +12,18 @@ import org.springframework.web.bind.annotation.*;
 
 import com.exam.demo.problema1.model.Empleado;
 import com.exam.demo.problema1.service.EmpleadoService;
-
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import com.exam.demo.problema1.swagger.EmpleadoApi;
 
 @RestController
-// @CrossOrigin(origins = "http://localhost:5173")
-@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE })
+// @CrossOrigin(origins = "*", methods = { RequestMethod.GET,
+// RequestMethod.POST, RequestMethod.DELETE })
 @RequestMapping("/empleado")
 
-public class GestionEmpleadosController {
+public class GestionEmpleadosController implements EmpleadoApi {
 
     @Autowired
     private EmpleadoService empleadoService; // Incorporamos el servicio del empleado
 
-    // @Operation(summary = "Obtener lista de empleados", description = "Retorna una
-    // lista de empleados")
-    // @ApiResponse(responseCode = "200", description = "ok")
-    // @GetMapping
-    // public List<Empleado> getAllEmploye() {
-    // return empleadoService.getAllEmploye();
-    // }
-
-    @Operation(summary = "Obtener empleado por ID", description = "Retorna una lista de personas")
-    @ApiResponse(responseCode = "200", description = "Successfully retrievedlist")
     @GetMapping
     public ResponseEntity<Map<String, Object>> getPersonById(
             @RequestParam(name = "identificationNumber", required = false) String identificationNumber) {
@@ -87,17 +75,16 @@ public class GestionEmpleadosController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createPerson(@RequestBody Empleado empleado) {
+    public ResponseEntity<Object> createEmploye(@RequestBody Empleado empleado) {
         try {
 
-            System.out.println(empleado.getIdentificationNumber());
             Optional<Empleado> e = empleadoService.getEmpleyeByIdentificationNumber(empleado.getIdentificationNumber());
 
             Map<String, Object> response = new HashMap<>();
 
             if (e.isPresent()) {
                 response.put("message", "El numero de identificador ya existe en el sistema");
-                response.put("data", null);
+                response.put("data", empleado);
                 return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
             }
 

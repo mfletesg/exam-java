@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.exam.demo.problema2.model.Circulo;
 import com.exam.demo.problema2.model.Rectangulo;
 import com.exam.demo.problema2.model.Triangulo;
+import com.exam.demo.problema2.swagger.FiguraApi;
 
 @RestController
-public class FiguraController {
+public class FiguraController implements FiguraApi {
     @GetMapping("/circulo")
     public ResponseEntity<Map<String, Object>> calcularCirculo(
             @RequestParam(name = "radio", required = true) double radio) {

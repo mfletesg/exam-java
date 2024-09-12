@@ -17,6 +17,7 @@ import com.exam.demo.problema3.clases.CuentaAhorro;
 import com.exam.demo.problema3.clases.CuentaCorriente;
 import com.exam.demo.problema3.model.CuentaBancaria;
 import com.exam.demo.problema3.service.CuentaBancariaService;
+import com.exam.demo.problema3.swagger.CuentaBancariaApi;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -25,7 +26,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
-public class CuentaAhorroController {
+public class CuentaAhorroController implements CuentaBancariaApi {
 
     @Autowired
     private CuentaAhorro cuentaAhorroService;
@@ -39,12 +40,23 @@ public class CuentaAhorroController {
     @PutMapping("/cuenta/depositar")
     public ResponseEntity<Map<String, Object>> depositar(@RequestBody Map<String, Object> requestBody) {
         Map<String, Object> response = new HashMap<>();
-        if (requestBody == null || !requestBody.containsKey("tipoCuenta") || requestBody.get("tipoCuenta") == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+
+        String numeroCuenta = (String) requestBody.get("numeroCuenta");
+        List<Map<String, Object>> datosCuenta = cuentaBancariaService.getCuentaBancaria(numeroCuenta);
+
+        if (datosCuenta.isEmpty() || datosCuenta == null) {
+            response.put("message",
+                    "No se puede realizar la acción ya que la cuenta con numero: " + numeroCuenta + " no existe");
+            response.put("data", requestBody);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
-        String tipoCuenta = (String) requestBody.get("tipoCuenta");
-        switch (tipoCuenta) {
+        Map<String, Object> cuenta = datosCuenta.get(0);
+        String tipo_cuenta = (String) cuenta.get("tipo_cuenta");
+
+        System.out.println(tipo_cuenta);
+
+        switch (tipo_cuenta) {
             case "Cuenta Ahorro":
                 return cuentaAhorroService.depositar(requestBody);
             case "Cuenta Corriente":
@@ -59,13 +71,22 @@ public class CuentaAhorroController {
     @PutMapping("/cuenta/retirar")
     public ResponseEntity<Map<String, Object>> retirar(@RequestBody Map<String, Object> requestBody) {
         Map<String, Object> response = new HashMap<>();
-        if (requestBody == null || !requestBody.containsKey("tipoCuenta") || requestBody.get("tipoCuenta") == null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        String numeroCuenta = (String) requestBody.get("numeroCuenta");
+        List<Map<String, Object>> datosCuenta = cuentaBancariaService.getCuentaBancaria(numeroCuenta);
+
+        if (datosCuenta.isEmpty() || datosCuenta == null) {
+            response.put("message",
+                    "No se puede realizar la acción ya que la cuenta con numero: " + numeroCuenta + " no existe");
+            response.put("data", requestBody);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
-        String tipoCuenta = (String) requestBody.get("tipoCuenta");
+        Map<String, Object> cuenta = datosCuenta.get(0);
+        String tipo_cuenta = (String) cuenta.get("tipo_cuenta");
 
-        switch (tipoCuenta) {
+        System.out.println(tipo_cuenta);
+
+        switch (tipo_cuenta) {
             case "Cuenta Ahorro":
                 return cuentaAhorroService.retirar(requestBody);
             case "Cuenta Corriente":
@@ -88,12 +109,7 @@ public class CuentaAhorroController {
         return ResponseEntity.ok(response);
     }
 
-    @Operation(summary = "Depostidar", description = "Depositar a cuenta bancaria")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Depositar a cuenta", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CuentaBancaria.class))),
-
-    })
-    @PostMapping("/cuenta/cuentaAhorro")
+    @PostMapping("/cuenta")
     public ResponseEntity<Map<String, Object>> create(@RequestBody Map<String, Object> requestBody) {
         String numeroCuenta = (String) requestBody.get("numeroCuenta");
         Double saldo = ((Number) requestBody.get("saldo")).doubleValue();
@@ -114,7 +130,7 @@ public class CuentaAhorroController {
 
         response.put("message", "ok");
         response.put("data", requestBody);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
 }
