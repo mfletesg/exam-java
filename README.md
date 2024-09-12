@@ -2,8 +2,8 @@
 Este proyecto se desarrolló en Java 21 usando el Framework Spring Boot 3 con mysql. El lado visual se desarrollo con JavaScript en react.
 
 <div style="text-align: center;">
-    <img src="./img/java-logo.svg" alt="php-logo" width="200" height="100">
-    <img src="./img/spring-boot.svg" alt="php-logo" width="90" height="90">
+    <img src="./img/java-logo.svg" alt="java-logo" width="200" height="100">
+    <img src="./img/Spring-Boot.svg" alt="spring-logo" width="90" height="90">
 </div>
 
 ## Requerimientos

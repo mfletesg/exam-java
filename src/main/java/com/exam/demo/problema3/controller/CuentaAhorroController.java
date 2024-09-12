@@ -15,15 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exam.demo.problema3.clases.CuentaAhorro;
 import com.exam.demo.problema3.clases.CuentaCorriente;
-import com.exam.demo.problema3.model.CuentaBancaria;
 import com.exam.demo.problema3.service.CuentaBancariaService;
 import com.exam.demo.problema3.swagger.CuentaBancariaApi;
-
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 public class CuentaAhorroController implements CuentaBancariaApi {
