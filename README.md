@@ -36,12 +36,12 @@ El proyecto utiliza MySQL como soporte para la base de datos. Las tablas se crea
 
 3. Configurar MySQL
 
-    - Crear una base de datos llamada `tu_base_de_datos`
+    - Crear una base de datos llamada `exam`
     - Agregar un usuario con permisos de acceso a la base de datos
     - Actualizar las propiedades de conexión en el archivo `application.properties`
 
     ```properties
-    spring.datasource.url=jdbc:mysql://localhost:3306/tu_base_de_datos
+    spring.datasource.url=jdbc:mysql://localhost:3306/exam
     spring.datasource.username=tu_usuario
     spring.datasource.password=tu_contraseña
     ```
@@ -55,9 +55,28 @@ El proyecto utiliza MySQL como soporte para la base de datos. Las tablas se crea
 5. Acceder a la aplicación
 
     Abre un navegador y accede a [http://localhost:8080](http://localhost:8080)
+    
+
+6. Sigue los pasos del proyecto de Frontend
+
+    Accede a [https://github.com/mfletesg/exam-frontend](https://github.com/mfletesg/exam-frontend)
 
 ## Notas
 
 - Asegúrate de tener Java 21 o superior instalado en tu sistema.
 - Asegúrate de tener MySQL instalado y configurado correctamente.
 - Puedes personalizar las propiedades de conexión a la base de datos en el archivo `application.properties`
+
+
+## APIS
+
+Las APIs de este proyecto en Spring Boot 3 están completamente documentadas y disponibles para su consulta en la siguiente URL:
+
+http://localhost:8080/swagger-ui/index.html#/
+
+En esta página, podrás explorar todos los endpoints, ver ejemplos de solicitudes y respuestas, y obtener información detallada sobre cada API. Esta documentación interactiva te permitirá entender mejor cómo interactuar con nuestros servicios REST y facilitará la integración con el frontend o cualquier otra aplicación que consuma nuestras APIs.
+
+
+<div style="text-align: center;">
+    <img src="./img/swagger-api.png" alt="java-logo" w>
+</div>
